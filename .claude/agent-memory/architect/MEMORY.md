@@ -1,0 +1,1 @@
+- [Sistema de Ratings — contexto de la feature](project_ratings_feature.md) — decisiones de diseño y orden de implementación para ratings 1-5 estrellas
