@@ -61,3 +61,8 @@ Frontend (TypeScript)     Mobile Apps (Swift/Kotlin)
 
 
 El enfoque es mantener la simplicidad y funcionalidad core sin features adicionales complejas.
+
+
+Esto es un ejemplo para un PR
+Vamos a hacer otro cambio para ver que pasa con cluade, a ver si deja comentarios después de revisar este PR
+Hagamos un cambio
