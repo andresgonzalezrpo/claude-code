@@ -61,3 +61,6 @@ Frontend (TypeScript)     Mobile Apps (Swift/Kotlin)
 
 
 El enfoque es mantener la simplicidad y funcionalidad core sin features adicionales complejas.
+
+
+Esto es un ejemplo para un PR
