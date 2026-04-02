@@ -65,3 +65,4 @@ El enfoque es mantener la simplicidad y funcionalidad core sin features adiciona
 
 Esto es un ejemplo para un PR
 Vamos a hacer otro cambio para ver que pasa con cluade, a ver si deja comentarios después de revisar este PR
+Hagamos un cambio
