@@ -4,12 +4,17 @@ import { Course as CourseComponent } from "@/components/Course/Course";
 import Link from "next/link";
 
 async function getCourses(): Promise<Course[]> {
-  const res = await fetch("http://localhost:8000/courses", { cache: "no-store" });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Failed to fetch courses");
   }
   const data = await res.json();
-  return data.data;
+  return data.map((course: { id: number; name: string; thumbnail: string; slug: string; average_rating?: number; total_ratings?: number }) => ({
+    ...course,
+    title: course.name,
+    teacher: "",
+    duration: 0,
+  }));
 }
 
 export default async function Home() {
@@ -37,6 +42,8 @@ export default async function Home() {
                 teacher={course.teacher}
                 duration={course.duration}
                 thumbnail={course.thumbnail}
+                average_rating={course.average_rating}
+                total_ratings={course.total_ratings}
               />
             </Link>
           ))}

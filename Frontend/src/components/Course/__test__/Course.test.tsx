@@ -46,4 +46,24 @@ describe("Course Component", () => {
     expect(container.querySelector("div > h2")).toBeDefined();
     expect(container.querySelector("div > p")).toBeDefined();
   });
+
+  it("renders StarRating when average_rating is provided", () => {
+    render(<Course {...mockCourse} average_rating={4.2} />);
+
+    // StarRating renders with role="img" and aria-label
+    const starRating = screen.getByRole("img", { name: /estrellas/i });
+    expect(starRating).toBeDefined();
+    expect(starRating).toHaveAttribute("aria-label", "4.2 de 5 estrellas");
+  });
+
+  it("does not render StarRating when average_rating is not provided", () => {
+    render(<Course {...mockCourse} />);
+
+    // The only img role should be the thumbnail, not a StarRating
+    const images = screen.getAllByRole("img");
+    const starRating = images.find((el) =>
+      el.getAttribute("aria-label")?.includes("estrellas")
+    );
+    expect(starRating).toBeUndefined();
+  });
 });

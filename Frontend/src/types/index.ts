@@ -6,6 +6,28 @@ export interface Course {
   duration: number;
   thumbnail: string;
   slug: string;
+  average_rating?: number;
+  total_ratings?: number;
+}
+
+// Rating types
+export interface Rating {
+  id: number;
+  course_id: number;
+  rating: number; // 1-5
+  review_text?: string;
+  created_at: string;
+}
+
+export interface RatingSummary {
+  ratings: Rating[];
+  total: number;
+  average: number;
+}
+
+export interface RatingCreate {
+  rating: number;
+  review_text?: string;
 }
 
 // Class types

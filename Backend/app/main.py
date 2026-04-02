@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.base import engine, get_db
 from app.services.course_service import CourseService
+from app.schemas.rating import RatingCreate, RatingResponse
 
 app = FastAPI(title=settings.project_name, version=settings.version)
 
@@ -70,8 +71,40 @@ def get_course_by_slug(slug: str, course_service: CourseService = Depends(get_co
     Returns course information including teachers and classes.
     """
     course = course_service.get_course_by_slug(slug)
-    
+
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
-    
+
     return course
+
+
+@app.post("/courses/{course_id}/ratings", response_model=RatingResponse, status_code=201)
+def create_rating(
+    course_id: int,
+    rating_data: RatingCreate,
+    course_service: CourseService = Depends(get_course_service),
+) -> RatingResponse:
+    """
+    Create a rating for a course.
+    Returns 404 if the course does not exist.
+    Returns 422 if rating is out of range (1-5).
+    """
+    try:
+        return course_service.create_rating(course_id, rating_data)
+    except ValueError:
+        raise HTTPException(status_code=404, detail="Course not found")
+
+
+@app.get("/courses/{course_id}/ratings", response_model=list[RatingResponse])
+def get_ratings(
+    course_id: int,
+    course_service: CourseService = Depends(get_course_service),
+) -> list[RatingResponse]:
+    """
+    Get all ratings for a course.
+    Returns 404 if the course does not exist.
+    """
+    try:
+        return course_service.get_ratings_by_course(course_id)
+    except ValueError:
+        raise HTTPException(status_code=404, detail="Course not found")

@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]: PLATZI
+      - generic [ref=e5]: FLIX
+      - generic [ref=e6]: CURSOS
+    - generic [ref=e7]: PLATZI
+    - generic [ref=e8]: FLIX
+    - main [ref=e9]:
+      - generic [ref=e10]:
+        - link [ref=e11] [cursor=pointer]:
+          - /url: /course/curso-de-react
+          - article [ref=e12]:
+            - img "Curso de React" [ref=e14]
+            - generic [ref=e15]:
+              - heading "Curso de React" [level=2] [ref=e16]
+              - paragraph [ref=e17]: "Profesor:"
+              - paragraph [ref=e18]: "Duración: 0 minutos"
+              - generic [ref=e19]:
+                - img "4 de 5 estrellas" [ref=e20]:
+                  - generic [ref=e21]: ★
+                  - generic [ref=e22]: ★
+                  - generic [ref=e23]: ★
+                  - generic [ref=e24]: ★
+                  - generic [ref=e25]: ☆
+                - generic [ref=e26]: "4.0"
+                - generic [ref=e27]: (2)
+        - link [ref=e28] [cursor=pointer]:
+          - /url: /course/curso-de-python
+          - article [ref=e29]:
+            - img "Curso de Python" [ref=e31]
+            - generic [ref=e32]:
+              - heading "Curso de Python" [level=2] [ref=e33]
+              - paragraph [ref=e34]: "Profesor:"
+              - paragraph [ref=e35]: "Duración: 0 minutos"
+              - generic [ref=e36]: Sin calificaciones
+        - link [ref=e37] [cursor=pointer]:
+          - /url: /course/curso-de-javascript
+          - article [ref=e38]:
+            - img "Curso de JavaScript" [ref=e40]
+            - generic [ref=e41]:
+              - heading "Curso de JavaScript" [level=2] [ref=e42]
+              - paragraph [ref=e43]: "Profesor:"
+              - paragraph [ref=e44]: "Duración: 0 minutos"
+              - generic [ref=e45]: Sin calificaciones
+  - alert [ref=e46]
+  - button "Open Next.js Dev Tools" [ref=e52] [cursor=pointer]:
+    - img [ref=e53]

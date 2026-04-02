@@ -1,0 +1,11 @@
+.starRating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.star {
+  font-size: 1.2rem;
+  color: #f5a623;
+  line-height: 1;
+}
